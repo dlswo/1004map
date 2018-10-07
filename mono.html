@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            background-color: black;
+            font-family: 'Josefin Sans';
+            font-weight: 600;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        div {
+            color: black;
+            margin:0;
+            padding:0;
+        }
+
+        .board {
+            background-color: lightblue;
+            width: 1300px;
+            height: 1300px;
+            display: flex;
+            flex-direction: row;
+            margin-left: 100px;
+        }
+        .space {
+            height: 98px;
+            width: 198px;
+            border: 1px solid black;
+            background-color: #e5f9e0;
+        }
+        .corner {
+            height: 198px;
+            width: 198px;
+            border: 1px solid black;
+            background-color: #e5f9e0;
+        }
+        .row {
+            display: flex;
+            flex-direction: row;
+            height: 200px;
+        }
+        .fix {
+            display: flex;
+            flex-direction: column;
+        }
+        .bottom {
+
+        }
+        .space2 {
+            position: relative;
+            width:98px;
+            height: 198px;
+            border: 1px solid black;
+            background-color: #e5f9e0;
+        }
+        .bottom {
+            margin-top: auto;
+        }
+
+        .left .space .color {
+            width: 25%;
+            height: 100%;
+            margin-left: auto;
+            border-left: 1px solid black;
+        }
+        .right .space .color {
+            width: 25%;
+            height: 100%;
+            margin-right: auto;
+            border-right: 1px solid black;
+        }
+        .top .space2 .color {
+            width: 100%;
+            height: 25%;
+            margin-top: 147px;
+            border-top: 1px solid black;
+        }
+        .bottom .space2 .color {
+            width: 100%;
+            height: 25%;
+            border-bottom: 1px solid black;
+        }
+        .group1 {background-color: #722e81;}
+        .group2 {background-color: #c7daf3;}
+        .group3 {background-color: #c10a80;position:relative;}
+        .group4 {background-color: #fabd2a;position:relative;}
+        .group5 {background-color: #fc3b22;position:relative;}
+        .group6 {background-color: #f8fd0f;position:relative;}
+        .group7 {background-color: #43c42c;position:relative;}
+        .group8 {background-color: #677db8;position:relative;}
+
+        .title {
+            padding: 16PX 5PX;
+        }
+        .title2 {
+            text-align: center;
+        }
+        .price {
+            font-size: 0.85em;
+            margin-top: 45px;
+        }
+        .price2 {
+            font-size: 0.85em;
+            margin-top: 61px;
+        }
+        .counter {
+            width: 0px;
+            left: 80px;
+            top: 60px;
+            position: absolute;
+            -webkit-transform: rotate(-90deg);
+            -moz-transform: rotate(-90deg);
+            -ms-transform: rotate(-90deg);
+            -o-transform: rotate(-90deg);
+            filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+        }
+        .counterprice {
+            font-size: 0.85em;
+            left: 140px;
+            top: 40px;
+            width: 85px;
+        }
+        .clock {
+            width: 0px;
+            right: 80px;
+            top: -5px;
+            position: absolute;
+            -webkit-transform: rotate(90deg);
+            -moz-transform: rotate(90deg);
+            -ms-transform: rotate(90deg);
+            -o-transform: rotate(90deg);
+            filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+        }
+        .clockfix {top:5px;}
+        .clockprice {
+            font-size: 0.85em;
+            left: -176px;
+            top: 40px;
+            width: 85px;
+        }
+        .upside {
+            width:0;
+            top: 99px;
+            left: 84px;
+            font-size:14px;
+            position: absolute;
+            -webkit-transform: rotate(180deg);
+            -moz-transform: rotate(180deg);
+            -ms-transform: rotate(180deg);
+            -o-transform: rotate(180deg);
+            filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+        }
+        .upsideprice {
+            font-size: 0.85em;
+            left: 10px;
+            top: 10px;
+            width: 85px;
+        }
+        #park {
+            top: 50px;
+        }
+        #boardwalk {
+            top:84px;
+        }
+
+        #chance {
+            border: 1px dashed black;
+            width:250px;
+            height:150px;
+            top: -180px;
+            left: -350px;
+            font-size:14px;
+            position: absolute;
+            -webkit-transform: rotate(135deg);
+            -moz-transform: rotate(135deg);
+            -ms-transform: rotate(135deg);
+            -o-transform: rotate(135deg);
+            filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3.5);
+        }
+        #community {
+            border: 1px dashed black;
+            width:250px;
+            height:150px;
+            top: 150px;
+            left: 150px;
+            font-size:14px;
+            position: absolute;
+            -webkit-transform: rotate(135deg);
+            -moz-transform: rotate(135deg);
+            -ms-transform: rotate(135deg);
+            -o-transform: rotate(135deg);
+            filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3.5);
+        }
+        #communitytext {
+            width:150px;
+            height:15px;
+            top: 280px;
+            left: 270px;
+            font-size:14px;
+            position: absolute;
+            -webkit-transform: rotate(135deg);
+            -moz-transform: rotate(135deg);
+            -ms-transform: rotate(135deg);
+            -o-transform: rotate(135deg);
+            filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3.5);
+        }
+        #chancetext {
+            width:100px;
+            height:20px;
+            top: -172px;
+            left: -345px;
+            font-size:14px;
+            position: absolute;
+            -webkit-transform: rotate(-45deg);
+            -moz-transform: rotate(-45deg);
+            -ms-transform: rotate(-45deg);
+            -o-transform: rotate(-45deg);
+            filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3.5);
+        }
+        #titletext {
+            width:900px;
+            height:700px;
+            top: -800px;
+            left: -900px;
+            position: absolute;
+        }
+
+    </style>
+</head>
+<body><link href='https://fonts.googleapis.com/css?family=Josefin+Sans&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+
+<div class="board">
+    <div class="col left">
+        <div class="corner"></div>
+        <div class="space"><div class="color group4"><div class="title2 clock">NEW YORK AVENUE</div><div class="clock clockprice">PRICE $200</div></div></div>
+        <div class="space"><div class="color group4"><div class="title2 clock">TENNES-SEE AVENUE</div><div class="clock clockprice">PRICE $180</div></div></div>
+        <div class="space"></div>
+        <div class="space"><div class="color group4"><div class="title2 clock">ST. JAMES PLACE</div><div class="clock clockprice">PRICE $180</div></div></div>
+        <div class="space"></div>
+        <div class="space"><div class="color group3"><div class="title2 clock clockfix">VIRGINIA AVENUE</div><div class="clock clockprice">PRICE $160</div></div></div>
+        <div class="space"><div class="color group3"><div class="title2 clock clockfix">STATES AVENUE</div><div class="clock clockprice">PRICE $160</div></div></div>
+        <div class="space"></div>
+        <div class="space"><div class="color group3"><div class="title2 clock">ST. CHARLES PLACE</div><div class="clock clockprice">PRICE $140</div></div></div>
+        <div class="corner"></div>
+    </div>
+    <div class="fix">
+        <div class="row top">
+            <div class="space2"><div class="title2 upside">KENTUCKY AVENUE</div><div class="upside upsideprice">PRICE $220</div><div class="color group5"></div></div>
+            <div class="space2"></div>
+            <div class="space2"><div class="title2 upside">INDIANA AVENUE</div><div class="upside upsideprice">PRICE $220</div><div class="color group5"></div></div>
+            <div class="space2"><div class="title2 upside">ILLINOIS AVENUE</div><div class="upside upsideprice">PRICE $240</div><div class="color group5"></div></div>
+            <div class="space2"></div>
+            <div class="space2"><div class="title2 upside">ATLANTIC AVENUE</div><div class="upside upsideprice">PRICE $260</div><div class="color group6"></div></div>
+            <div class="space2"><div class="title2 upside">VENTNOR AVENUE</div><div class="upside upsideprice">PRICE $260</div><div class="color group6"></div></div>
+            <div class="space2"></div>
+            <div class="space2"><div class="title2 upside">MARVIN GARDENS</div><div class="upside upsideprice">PRICE $280</div><div class="color group6"></div></div>
+        </div>
+        <div class="row bottom">
+            <div class="space2"><div class="color group2"></div><div class="title">CONNEC-TICUT AVENUE</div><div class="price">PRICE $120</div></div>
+            <div class="space2"><div class="color group2"></div><div class="title">VERMONT AVENUE</div><div class="price2">PRICE $100</div></div>
+            <div class="space2"></div>
+            <div class="space2"><div class="color group2"></div><div class="title">ORIENTAL AVENUE</div><div class="price2">PRICE $100</div></div>
+            <div class="space2"></div>
+            <div class="space2"></div>
+            <div class="space2"><div class="color group1"></div><div class="title">BALTIC AVENUE</div><div class="price2">PRICE $60</div></div>
+            <div class="space2"></div>
+            <div class="space2"><div class="color group1"></div><div class="title">MEDITER-RANEAN AVENUE</div><div class="price">PRICE $60</div></div>
+        </div>
+    </div>
+    <div class="col right">
+        <div class="corner"></div>
+        <div class="space"><div class="color group7"><div class="title2 counter">PACIFIC AVENUE</div><div class="counter counterprice">PRICE $300</div></div></div>
+        <div class="space"><div class="color group7"><div class="title2 counter">NORTH CAROLINA AVENUE</div><div class="counter counterprice">PRICE $300</div></div></div>
+        <div class="space"></div>
+        <div class="space"><div class="color group7"><div class="title2 counter">PENNSYL-VANIA AVENUE</div><div class="counter counterprice">PRICE $320</div></div></div>
+        <div class="space"></div>
+        <div class="space"></div>
+        <div class="space"><div class="color group8"><div class="title2 counter" id="park">PARK PLACE</div><div class="counter counterprice">PRICE $350</div></div></div>
+        <div class="space"></div>
+        <div class="space"><div class="color group8"><div class="title2 counter" id="boardwalk">BOARDWALK</div><div class="counter counterprice">PRICE $400</div><div id="chance"></div><div id="chancetext">CHANCE</div><div id="titletext"><div id="map" style="width:100%;height:94vh;"></div></div></div></div>
+        <div class="corner"></div>
+    </div>
+</div>
+
+
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=95b526f7c2c8c50e0c00f16777a6827a"></script>
+<script>
+    var mapContainer = document.getElementById('map'), // 지도를 표시할 div
+        mapOption = {
+            center: new daum.maps.LatLng(37.570404,126.984815), // 지도의 중심좌표
+            level: 3 // 지도의 확대 레벨
+        };
+
+    // 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
+    var map = new daum.maps.Map(mapContainer, mapOption);
+
+    // 마커를 생성합니다
+    var marker = new daum.maps.Marker({
+        position: new daum.maps.LatLng(37.570404,126.984815),
+        map: map
+    });
+
+    // 마커가 지도 위에 표시되도록 설정합니다
+    marker.setMap(map);
+</script>
+</body>
+</html>

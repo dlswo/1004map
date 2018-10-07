@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<!--<script>-->
+
+    <!--var arr = [12,42,11,51,52,11,7];-->
+
+    <!--arr.sort(function(a,b){-->
+        <!--return a - b;-->
+    <!--});-->
+
+    <!--console.log(arr);-->
+
+<!--</script>-->
+
+<script>
+
+    var current = {
+        lat:37.570404,
+        lng:126.984815};
+
+    var arr = [
+    {title: '북' , lat: 37.577812 , lng: 126.981790},
+    {title: '동' , lat: 37.570511 , lng: 126.985237},
+    {title: '서' , lat: 37.570362 , lng: 126.980816},
+    {title: '남' , lat: 37.567654 , lng: 126.985495},
+    ];
+
+    function calcDistance(p1, p2){
+        return Math.sqrt( Math.pow( p1.lat - p2.lat,2) +
+            Math.pow( p1.lng - p2.lng,2)
+        );
+    }
+    arr.sort(function (a, b) {
+        var d1 = calcDistance(current, a) * 100000;
+        var d2 = calcDistance(current, b) * 100000;
+        return d1 - d2;
+    })
+
+    console.log(arr);
+
+</script>
+
+</body>
+</html>
